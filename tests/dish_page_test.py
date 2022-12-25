@@ -11,6 +11,11 @@ class TestDishPage:
         dishes_count = page.dishes_count()
         assert dishes_count == len(buttons)
 
+        # check change buttons style
+        classes = [b.get_attribute("className") for b in buttons]
+        for c in classes:
+            assert "bttn_primary" not in c and "bttn_secondary" in c
+
     def test_select_gift(self, driver):
         page = DishPage(driver, "https://baranbellini.ru/grill")
         page.open()
