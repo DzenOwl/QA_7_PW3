@@ -25,3 +25,12 @@ class TestDishPage:
         total_sum = page.order_sum()
         assert total_sum >= min_gift_cost
         assert page.open_gift_frame() == False  # True # BUG: ADD GIFT NOT PASSED!
+
+    def test_top_move(self, driver):
+        page = DishPage(driver, "https://baranbellini.ru/grill")
+        page.open()
+        assert page.check_page_in_top() == True
+        page.scroll_to_bottom()
+        assert page.check_page_in_top() == False
+        page.click_back_top()
+        assert page.check_page_in_top() == True

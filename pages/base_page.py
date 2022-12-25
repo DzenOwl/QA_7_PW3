@@ -32,3 +32,9 @@ class BasePage:
 
     def get_element_cost(self, element: WebElement) -> int:
         return int(element.get_attribute('textContent').replace(' ', '').replace(' ', '')[:-1])
+
+    def check_page_in_top(self) -> bool:
+        return self.driver.execute_script("return !window.pageYOffset")
+
+    def scroll_to_bottom(self):
+        self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight)")

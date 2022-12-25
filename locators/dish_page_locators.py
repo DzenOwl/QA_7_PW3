@@ -19,3 +19,4 @@ class DishPageLocators:
     CLOSE_GIFTS_MENU = (By.CSS_SELECTOR, ".button.modal__close")
     CART_BUTTON = (By.CSS_SELECTOR, ".cart-informer__button.bttn")
     MOBILE_BLOCK = (By.CSS_SELECTOR, ".main-header__content_mobile")
+    BACK_TOP_BUTTON = (By.CSS_SELECTOR, ".back-top")

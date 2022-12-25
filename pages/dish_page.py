@@ -66,3 +66,7 @@ class DishPage(BasePage):
         for i in range(count):
             ActionChains(self.driver).move_to_element(buttons[i]).click(buttons[i]).perform()
         return buttons
+
+    def click_back_top(self):
+        button = self.element_is_visible(Locators.BACK_TOP_BUTTON)
+        ActionChains(self.driver).click(button).pause(2).perform()
