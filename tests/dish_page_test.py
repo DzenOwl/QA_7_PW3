@@ -1,18 +1,18 @@
 # *- coding: utf-8 -*-
-from pages.grill_page import GrillPage
+from pages.dish_page import DishPage
 
 
-class TestGrillPage:
+class TestDishPage:
 
-    def test_grill_page(self, driver):
-        page = GrillPage(driver, "https://baranbellini.ru/grill")
+    def test_dish_page(self, driver):
+        page = DishPage(driver, "https://baranbellini.ru/grill")
         page.open()
         buttons = page.buttons_click()
         dishes_count = page.dishes_count()
         assert dishes_count == len(buttons)
 
     def test_select_gift(self, driver):
-        page = GrillPage(driver, "https://baranbellini.ru/grill")
+        page = DishPage(driver, "https://baranbellini.ru/grill")
         page.open()
         dishes_costs = page.dishes_costs()
         min_gift_cost = page.min_gift_cost()

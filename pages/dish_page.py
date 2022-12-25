@@ -3,10 +3,11 @@ from typing import List
 
 from selenium.webdriver import ActionChains
 from pages.base_page import BasePage
-from locators.grill_page_locatiors import GrillPageLocators as Locators
+from locators.dish_page_locators import DishPageLocators as Locators
 from random import randint
 
-class GrillPage(BasePage):
+
+class DishPage(BasePage):
 
     def check_visible(self):
         self.elements_are_visible(Locators.DISHES)
@@ -48,7 +49,6 @@ class GrillPage(BasePage):
             if id == gift_id and check:
                 return True
         return False
-
 
     def clicked_button(self, index: int, clicks: int):
         buttons = self.elements_are_located(Locators.BUTTONS_ADD)

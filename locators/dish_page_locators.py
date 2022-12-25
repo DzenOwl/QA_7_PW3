@@ -2,7 +2,7 @@
 from selenium.webdriver.common.by import By
 
 
-class GrillPageLocators:
+class DishPageLocators:
     DISHES = (By.XPATH, "//div[@class='products-list']")
     PRICES = (By.XPATH, "//div[@class='product-tile__price']")
     BUTTONS_ADD = (By.CSS_SELECTOR, ".bttn.product-tile__add-btn")
