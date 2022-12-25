@@ -1,3 +1,4 @@
+from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support.ui import WebDriverWait as Wait
 from selenium.webdriver.support import expected_conditions as EC
 
@@ -28,3 +29,6 @@ class BasePage:
     def remove_element(self, css_class: str):
         self.driver.execute_script(
             f'e=document.getElementsByClassName("{css_class}")[0]; e.parentElement.removeChild(e);')
+
+    def get_element_cost(self, element: WebElement) -> int:
+        return int(element.get_attribute('textContent').replace(' ', '').replace(' ', '')[:-1])
