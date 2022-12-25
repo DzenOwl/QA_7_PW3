@@ -6,6 +6,10 @@ __pycache__/
 # C extensions
 *.so
 
+# Another Files
+misc.xml
+PW3.iml
+
 # Distribution / packaging
 .Python
 build/
