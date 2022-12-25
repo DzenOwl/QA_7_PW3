@@ -12,4 +12,5 @@ class GrillPageLocators:
     THERMOMETER = (By.CSS_SELECTOR, ".thermometer-container")
     COSTS = (By.CSS_SELECTOR, ".product-tile__price")
     THERMOMETER_GIFT_VALUE = (By.CSS_SELECTOR, ".thermometer-scale-container__mark")
-
+    GIFT_BUTTON = (By.CSS_SELECTOR, ".thermometer-button-container__gifts-popup-button")
+    DISH_DETAIL_BUTTON = (By.CSS_SELECTOR, ".bttn.product-detail__add-btn.bttn_bigger")

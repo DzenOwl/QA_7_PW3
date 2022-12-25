@@ -16,15 +16,9 @@ class GrillPage(BasePage):
         self.elements_are_visible(Locators.ELEMENTS)
         self.element_is_visible(Locators.DISHES_COUNTER)
 
-    def dishes_counter(self) -> int:
+    def dishes_count(self) -> int:
         e = self.element_is_located(Locators.DISHES_COUNTER)
         return int(e.get_attribute('textContent').split(' ')[0])
-
-    def buttons_count(self):
-        return self.elements_count(Locators.BUTTONS_ADD)
-
-    def remove_thermometer(self):
-        self.remove_element("thermometer-container")
 
     def order_sum(self) -> int:
         return self.get_element_cost(self.element_is_located(Locators.ORDER_SUM))
@@ -42,10 +36,12 @@ class GrillPage(BasePage):
         for i in range(clicks):
             action = action.click(buttons[index])
         action = action.perform()
+        return buttons
 
     def buttons_click(self):
-        self.remove_thermometer()
-        count = self.buttons_count()
+        self.remove_element("thermometer-container")
         buttons = self.elements_are_located(Locators.BUTTONS_ADD)
+        count = len(buttons)
         for i in range(count):
             ActionChains(self.driver).move_to_element(buttons[i]).click(buttons[i]).perform()
+        return buttons
