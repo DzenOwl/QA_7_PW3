@@ -21,6 +21,9 @@ class GrillPage(BasePage):
     def buttons_count(self):
         return self.elements_count(Locators.BUTTONS_ADD)
 
+    def remove_thermometer(self):
+        self.remove_element("thermometer-container")
+
     def buttons_click(self):
         self.remove_thermometer()
         count = self.buttons_count()

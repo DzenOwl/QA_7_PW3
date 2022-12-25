@@ -25,5 +25,6 @@ class BasePage:
     def elements_count(self, locator, timeout=5) -> int:
         return len(Wait(self.driver, timeout).until(EC.presence_of_all_elements_located(locator)))
 
-    def remove_thermometer(self):
-        self.driver.execute_script('e=document.getElementsByClassName("thermometer-container")[0]; e.parentElement.removeChild(e);')
+    def remove_element(self, css_class: str):
+        self.driver.execute_script(
+            f'e=document.getElementsByClassName("{css_class}")[0]; e.parentElement.removeChild(e);')
