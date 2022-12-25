@@ -7,4 +7,6 @@ class GrillPageLocators:
     PRICES = (By.XPATH, "//div[@class='product-tile__price']")
     BUTTONS_ADD = (By.CSS_SELECTOR, ".bttn.product-tile__add-btn")
     ELEMENTS = (By.XPATH, "//div[@class='product-tile__name']")
-    COUNT_DISHES = (By.CSS_SELECTOR, ".cart-informer__counter")
+    DISHES_COUNTER = (By.CSS_SELECTOR, ".cart-informer__counter")
+    THERMOMETER = (By.CSS_SELECTOR, ".thermometer-container")
+

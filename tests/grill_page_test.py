@@ -7,8 +7,7 @@ class TestGrillPage:
     def test_grill_page(self, driver):
         page = GrillPage(driver, "https://baranbellini.ru/grill")
         page.open()
-        # page.print_menu()
-        # page.fill_fields_and_submit()
-        buttons_count = page.buttons_count()
-        # print(page.dishes_count())
         page.buttons_click()
+        dishes_count = page.dishes_counter()
+        button_count = page.buttons_count()
+        assert dishes_count == button_count
