@@ -24,7 +24,7 @@ class DishPage(BasePage):
         return self.get_element_cost(self.element_is_located(Locators.ORDER_SUM))
 
     def dishes_costs(self) -> List[int]:
-        return [self.get_element_cost(e) for e in self.elements_are_located(Locators.COSTS)]
+        return [self.get_element_cost(e) for e in self.elements_located(Locators.COSTS)]
 
     def min_gift_cost(self) -> int:
         return self.get_element_cost(self.element_is_located(Locators.THERMOMETER_GIFT_VALUE))
@@ -51,7 +51,7 @@ class DishPage(BasePage):
         return False
 
     def clicked_button(self, index: int, clicks: int):
-        buttons = self.elements_are_located(Locators.BUTTONS_ADD)
+        buttons = self.elements_located(Locators.BUTTONS_ADD)
         action = ActionChains(self.driver)
         action = action.move_to_element(buttons[index])
         for i in range(clicks):
@@ -61,7 +61,7 @@ class DishPage(BasePage):
 
     def buttons_click(self):
         self.remove_element("thermometer-container")
-        buttons = self.elements_are_located(Locators.BUTTONS_ADD)
+        buttons = self.elements_located(Locators.BUTTONS_ADD)
         count = len(buttons)
         for i in range(count):
             ActionChains(self.driver).move_to_element(buttons[i]).click(buttons[i]).perform()

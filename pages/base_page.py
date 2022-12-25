@@ -2,6 +2,8 @@ from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support.ui import WebDriverWait as Wait
 from selenium.webdriver.support import expected_conditions as EC
 
+from locators.base_page_locators import BasePageLocators as Locators
+
 
 class BasePage:
     def __init__(self, driver, url):
@@ -17,7 +19,16 @@ class BasePage:
     def elements_are_visible(self, locator, timeout=5):
         return Wait(self.driver, timeout).until(EC.visibility_of_all_elements_located(locator))
 
-    def elements_are_located(self, locator, timeout=5):
+    def scroll_to_bottom(self):
+        self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+
+    def scroll_to_top(self):
+        self.element_is_visible(Locators.BACK_TO_TOP).click()
+
+    def scroll_to_first_element_of_class(self, locator_class):
+        self.driver.execute_script(f"document.getElementsByClassName('{locator_class}')[0].scrollIntoView();")
+
+    def elements_located(self, locator, timeout=5):
         return Wait(self.driver, timeout).until(EC.presence_of_all_elements_located(locator))
 
     def element_is_located(self, locator, timeout=5):
