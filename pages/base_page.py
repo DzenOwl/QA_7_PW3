@@ -15,3 +15,9 @@ class BasePage:
 
     def elements_are_visible(self, locator, timeout=5):
         return Wait(self.driver, timeout).until(EC.visibility_of_all_elements_located(locator))
+
+    def elements_located(self, locator, timeout=5):
+        return Wait(self.driver, timeout).until(EC.presence_of_all_elements_located(locator))
+
+    def elements_count(self, locator, timeout=5) -> int:
+        return len(Wait(self.driver, timeout).until(EC.presence_of_all_elements_located(locator)))
