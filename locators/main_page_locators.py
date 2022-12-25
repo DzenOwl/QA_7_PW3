@@ -10,3 +10,5 @@ class MainPageLocators:
     FOOTER_LINKS_STR = "bottom-nav__item"
     FOOTER_LINKS = (By.XPATH, f"//a[@class='{FOOTER_LINKS_STR}']")
     SECTION_TITLE = (By.XPATH, ".content-title")
+    MENU_SECTIONS_STR = "top-nav__item"
+    MENU_SECTIONS = (By.CSS_SELECTOR, f".{MENU_SECTIONS_STR}")

@@ -11,11 +11,18 @@ class TestMainPage:
     #     time.sleep(2)
     #     main_page.scroll_to_top()
     #     time.sleep(1)
+    #
+    # def test_main_page_sections(self, driver):
+    #     main_page = MainPage(driver, "https://baranbellini.ru/main")
+    #     main_page.open()
+    #     main_page.check_sections()
+    #
+    # def test_main_page_promos(self, driver):
+    #     main_page = MainPage(driver, "https://baranbellini.ru/main")
+    #     main_page.open()
+    #     main_page.check_footer_links()
 
     def test_main_page_promos(self, driver):
         main_page = MainPage(driver, "https://baranbellini.ru/main")
         main_page.open()
-        main_page.scroll_to_promos()
-        time.sleep(2)
-        main_page.click_promos()
-        time.sleep(2)
+        main_page.check_footer_links()
