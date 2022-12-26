@@ -59,10 +59,10 @@ class DishPage(BasePage):
         action = action.perform()
         return buttons
 
-    def buttons_click(self):
+    def buttons_click(self, count: int = None):
         self.remove_element("thermometer-container")
         buttons = self.elements_located(Locators.BUTTONS_ADD)
-        count = len(buttons)
+        count = len(buttons) if count is None else count
         for i in range(count):
             ActionChains(self.driver).move_to_element(buttons[i]).click(buttons[i]).perform()
         return buttons
